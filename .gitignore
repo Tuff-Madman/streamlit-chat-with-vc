@@ -1,0 +1,12 @@
+# API Keys #
+######################
+.streamlit/secrets.toml
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+*.code-workspace
+######################
+# Config files       #
+######################
+*.toml

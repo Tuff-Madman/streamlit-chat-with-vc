@@ -19,7 +19,7 @@ openai.api_key = st.secrets["pass"]
 # ---------------------------------------------------------------------------- #
 
 PAGE_CONFIG = {
-    "page_title": "Talk to my VC | Primo Lighthouse Milano",
+    "page_title": "Parla con il mio VC | Primo Lighthouse Milano",
     "page_icon": "img/fav-ico.png",
     "layout": "centered"
 }
@@ -86,11 +86,13 @@ st.write('##### TALK TO MY VC')
 # ---------------------------------------------------------------------------- #
 # Sidebar
 # ---------------------------------------------------------------------------- #
-st.sidebar.image("img/logo-wordlift.png", width=200)
+# st.sidebar.image("img/logo-wordlift.png", width=200)
 # st.sidebar.title('Talk to my VC 🤖 🤖')
-st.sidebar.write("""
-        ###### Try my  chatbot developed with ChatGPT to emulate a conversation with a venture capital fund manager.
-         """)
+# st.sidebar.write("""
+# Try my  chatbot developed with GPT-4 to emulate a conversation with a famous Italian Venture Capital Fund Manager 🇮🇹.
+# You can ask him about his experience in the Venture Capital industry, his investment strategy, his portfolio companies, his opinion on the Italian startup ecosystem and much more.
+# The chatbot is an experiment by [WordLift](https://wordlift.io/) and will speak in Italian (even if you write in English).
+#         """)
 
 
 if 'generated' not in st.session_state:

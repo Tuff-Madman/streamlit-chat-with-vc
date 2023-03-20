@@ -3,6 +3,11 @@
 Created on Tue Feb 21 16:02:02 2023
 @author: cyberandy
 """
+
+# ---------------------------------------------------------------------------- #
+# Imports
+# ---------------------------------------------------------------------------- #
+
 import openai
 import streamlit as st
 from streamlit_chat import message

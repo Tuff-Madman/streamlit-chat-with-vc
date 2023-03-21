@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Feb 21 16:02:02 2023
+Created on Tue Mar 20 16:02:02 2023
 @author: cyberandy
 """
 
@@ -19,7 +19,7 @@ openai.api_key = st.secrets["pass"]
 # ---------------------------------------------------------------------------- #
 
 PAGE_CONFIG = {
-    "page_title": "Parla con il mio VC | Primo Lighthouse Milano",
+    "page_title": "Ask an SEO Expert",
     "page_icon": "img/fav-ico.png",
     "layout": "centered"
 }
@@ -38,26 +38,6 @@ local_css("style.css")
 # ---------------------------------------------------------------------------- #
 # Functions
 # ---------------------------------------------------------------------------- #
-
-# This function utilizes the OpenAI Completion API to generate a response based on the given prompt.
-# The temperature setting of the API affects how random the response is.
-# A higher temperature will generate more unpredictable responses while a
-# lower temperature will lead to more predictable ones.
-
-# def generate_response(prompt):
-#    completions = openai.Completion.create(
-#        engine="text-davinci-003",
-#        prompt=prompt,
-#        temperature=0.9,
-#        max_tokens=150,
-#        top_p=1,
-#        frequency_penalty=0.0,
-#        presence_penalty=0.6,
-#        stop=[" Human:", " AI:"]
-#   )
-
-#    message = completions.choices[0].text
-#   return message
 
 
 def generate_response(prompt):
@@ -81,18 +61,19 @@ def generate_response(prompt):
 # ---------------------------------------------------------------------------- #
 
 
-st.write('##### TALK TO MY VC')
+st.write('##### ASK AN SEO EXPERT')
 
 # ---------------------------------------------------------------------------- #
 # Sidebar
 # ---------------------------------------------------------------------------- #
-# st.sidebar.image("img/logo-wordlift.png", width=200)
-# st.sidebar.title('Talk to my VC 🤖 🤖')
-# st.sidebar.write("""
-# Try my  chatbot developed with GPT-4 to emulate a conversation with a famous Italian Venture Capital Fund Manager 🇮🇹.
-# You can ask him about his experience in the Venture Capital industry, his investment strategy, his portfolio companies, his opinion on the Italian startup ecosystem and much more.
-# The chatbot is an experiment by [WordLift](https://wordlift.io/) and will speak in Italian (even if you write in English).
-#         """)
+st.sidebar.image("img/logo-wordlift.png", width=200)
+st.sidebar.title('Ask an SEO Expert 💬')
+st.sidebar.write("""
+Try our latest chatbot to answer your top questions about search engine optimization.
+\n\n
+Have a question? [Let's talk](https://wordlift.io/contact-us) about it!.
+\n\n
+The chatbot is an experiment by [WordLift](https://wordlift.io/).""")
 
 
 if 'generated' not in st.session_state:
@@ -104,7 +85,7 @@ if 'past' not in st.session_state:
 
 def get_text():
     # input_text = st.text_input("Human [enter your message here]: "," Hello Mr AI how was your day today? ", key="input")
-    input_text = st.text_input('Human [enter your message here]:', '')
+    input_text = st.text_input('Human [enter your SEO question here]:', '')
     return input_text
 
 
@@ -121,6 +102,6 @@ if st.session_state['generated']:
 
     for i in range(len(st.session_state['generated'])-1, -1, -1):
         message(st.session_state["generated"][i], key=str(
-            i), avatar_style="shapes", seed="Felix")
+            i), avatar_style="thumbs", seed="Aneka")
         message(st.session_state['past'][i],
-                is_user=True, key=str(i) + '_user', avatar_style="shapes", seed="Aneka")
+                is_user=True, key=str(i) + '_user', avatar_style="thumbs", seed="Sambal")

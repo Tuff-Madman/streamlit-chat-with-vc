@@ -71,9 +71,7 @@ def generate_response(prompt):
         model="gpt-4",
         messages=messages)
 
-    content = completion["choices"][0]["message"]["content"]
-
-    return content
+    return completion["choices"][0]["message"]["content"]
 
 
 # ---------------------------------------------------------------------------- #
@@ -104,15 +102,10 @@ if 'past' not in st.session_state:
 
 
 def get_text():
-    # input_text = st.text_input("Human [enter your message here]: "," Hello Mr AI how was your day today? ", key="input")
-    input_text = st.text_input('Human [enter your message here]:', '')
-    return input_text
+    return st.text_input('Human [enter your message here]:', '')
 
 
-user_input = get_text()
-
-
-if user_input:
+if user_input := get_text():
     output = generate_response(user_input)
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output)
@@ -123,5 +116,10 @@ if st.session_state['generated']:
     for i in range(len(st.session_state['generated'])-1, -1, -1):
         message(st.session_state["generated"][i], key=str(
             i), avatar_style="shapes", seed="Felix")
-        message(st.session_state['past'][i],
-                is_user=True, key=str(i) + '_user', avatar_style="shapes", seed="Aneka")
+        message(
+            st.session_state['past'][i],
+            is_user=True,
+            key=f'{str(i)}_user',
+            avatar_style="shapes",
+            seed="Aneka",
+        )
